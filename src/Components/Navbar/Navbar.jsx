@@ -1,86 +1,86 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router";
 import { FaGithub, FaFacebook, FaBars, FaTimes } from "react-icons/fa";
+
+const links = [
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "skills", label: "Skill" },
+];
+
+const socialLinks = [
+  {
+    href: "https://github.com/your-github-username",
+    label: "GitHub",
+    icon: <FaGithub />,
+  },
+  {
+    href: "https://facebook.com/your-facebook-profile",
+    label: "Facebook",
+    icon: <FaFacebook />,
+  },
+];
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const links = (
-    <>
-      <NavLink
-        to="/"
-        onClick={() => setMenuOpen(false)} // ক্লিক করলে মেনু বন্ধ হবে
-        className={({ isActive }) =>
-          isActive
-            ? "text-sky-500 font-semibold block px-3 py-2 rounded"
-            : "hover:text-sky-400 block px-3 py-2 rounded transition"
-        }
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+    setMenuOpen(false);
+  };
+
+  const renderLinks = (className = "") =>
+    links.map(({ id, label }) => (
+      <button
+        key={id}
+        onClick={() => scrollToSection(id)}
+        className={`cursor-pointer hover:text-sky-400 transition px-3 py-2 rounded ${className}`}
       >
-        Home
-      </NavLink>
-      <NavLink
-        to="/about"
-        onClick={() => setMenuOpen(false)}
-        className={({ isActive }) =>
-          isActive
-            ? "text-sky-500 font-semibold block px-3 py-2 rounded"
-            : "hover:text-sky-400 block px-3 py-2 rounded transition"
-        }
+        {label}
+      </button>
+    ));
+
+  const renderSocialIcons = () =>
+    socialLinks.map(({ href, label, icon }) => (
+      <a
+        key={label}
+        href={href}
+        target="_blank"
+        rel="noreferrer"
+        className="hover:text-sky-500 transition"
+        aria-label={label}
       >
-        About
-      </NavLink>
-      <NavLink
-        to="/skill"
-        onClick={() => setMenuOpen(false)}
-        className={({ isActive }) =>
-          isActive
-            ? "text-sky-500 font-semibold block px-3 py-2 rounded"
-            : "hover:text-sky-400 block px-3 py-2 rounded transition"
-        }
-      >
-        Skill
-      </NavLink>
-    </>
-  );
+        {icon}
+      </a>
+    ));
 
   return (
     <nav className="sticky top-0 z-50 primary shadow-md">
       <div className="container mx-auto flex items-center justify-between px-6 py-3">
-        {/* Left: Logo */}
+        {/* Logo */}
         <div className="flex-1">
-          <NavLink to="/" className="text-2xl font-bold text-sky-600">
+          <a
+            href="#"
+            onClick={() => scrollToSection("home")}
+            className="text-2xl font-bold text-sky-600 cursor-pointer"
+          >
             ShihabUddin
-          </NavLink>
+          </a>
         </div>
 
-        {/* Center: Nav Links (hidden on small screens) */}
+        {/* Desktop Links */}
         <div className="hidden md:flex gap-8 flex-1 justify-center text-gray-700 text-lg">
-          {links}
+          {renderLinks()}
         </div>
 
-        {/* Right: Social Icons (hidden on small screens) */}
+        {/* Desktop Social Icons */}
         <div className="hidden md:flex gap-6 flex-1 justify-end text-gray-700 text-2xl">
-          <a
-            href="https://github.com/your-github-username"
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-sky-500 transition"
-            aria-label="GitHub"
-          >
-            <FaGithub />
-          </a>
-          <a
-            href="https://facebook.com/your-facebook-profile"
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-sky-500 transition"
-            aria-label="Facebook"
-          >
-            <FaFacebook />
-          </a>
+          {renderSocialIcons()}
         </div>
 
-        {/* Mobile Hamburger Menu Button */}
+        {/* Mobile Hamburger */}
         <div className="md:hidden flex items-center">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
@@ -92,33 +92,13 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden bg-white shadow-md border-t border-gray-200">
           <div className="flex flex-col px-6 py-4 gap-4">
-            {/* Nav Links */}
-            {links}
-
-            {/* Social Links */}
+            {renderLinks("text-gray-700 hover:text-sky-500 transition px-3 py-2 rounded text-left")}
             <div className="flex gap-6 text-gray-700 text-2xl mt-4">
-              <a
-                href="https://github.com/your-github-username"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-sky-500 transition"
-                aria-label="GitHub"
-              >
-                <FaGithub />
-              </a>
-              <a
-                href="https://facebook.com/your-facebook-profile"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-sky-500 transition"
-                aria-label="Facebook"
-              >
-                <FaFacebook />
-              </a>
+              {renderSocialIcons()}
             </div>
           </div>
         </div>

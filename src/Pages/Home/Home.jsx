@@ -7,7 +7,7 @@ const Home = () => {
   //   const resumeLink = "/resume/ShihabUddin_Resume.pdf";
 
   return (
-    <div className="w-full h-screen bg-gradient-to-b from-[#2d2f33] to-[#1e293b] flex items-center px-6 md:px-20">
+    <div id="home" className="w-full h-screen bg-gradient-to-b from-[#2d2f33] to-[#1e293b] flex items-center px-6 md:px-20">
       {/* Left Side Text */}
       <div className="flex-1 text-center md:text-left">
         <h1 className="text-5xl md:text-6xl font-bold text-white drop-shadow-lg">
