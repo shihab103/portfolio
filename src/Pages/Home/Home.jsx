@@ -13,7 +13,7 @@ const Home = () => {
           A passionate <span className="text-sky-400">Web Developer</span> crafting
           interactive and visually stunning web experiences.
         </p>
-        <button className="mt-8 px-6 py-3 bg-sky-500 hover:bg-sky-400 text-white rounded-lg shadow-lg transition">
+        <button className="mt-8 px-6 py-3 btn-bg hover:bg-sky-400 text-white rounded-lg shadow-lg transition">
           View My Work
         </button>
       </div>
