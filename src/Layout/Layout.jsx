@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../Components/Navbar/Navbar';
 import Home from '../Pages/Home/Home';
 import About from '../Pages/About/About';
+import Skill from '../Pages/Skill/Skill';
 
 const Layout = () => {
     return (
@@ -9,6 +10,7 @@ const Layout = () => {
             <Navbar/>
             <Home/>
             <About/>
+            <Skill/>
         </div>
     );
 };
