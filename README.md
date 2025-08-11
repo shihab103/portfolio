@@ -3,7 +3,14 @@
 Welcome to my personal portfolio website! This site showcases my skills, projects, and ways to connect with me.
 
 ---
-🔗 **[Live Demo](https://brilliant-churros-578b1f.netlify.app](https://keen-sunburst-0bcab4.netlify.app/))**
+## 🔗 Live Demo
+
+[Live Demo](https://keen-sunburst-0bcab4.netlify.app/)  
+
+*Click above to see the live version of the portfolio website.*
+
+---
+
 
 ## 🏠 Homepage Screenshot
 <img width="947" height="436" alt="banner" src="https://github.com/user-attachments/assets/e7abb81d-c76b-48e9-8bc3-6a1040042ca2" />
