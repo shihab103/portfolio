@@ -36,7 +36,7 @@ const Navbar = () => {
       <button
         key={id}
         onClick={() => scrollToSection(id)}
-        className={`cursor-pointer hover:text-sky-400 transition px-3 py-2 rounded ${className}`}
+        className={`cursor-pointer text-sky-400 transition px-3 py-2 rounded ${className}`}
       >
         {label}
       </button>
@@ -49,7 +49,7 @@ const Navbar = () => {
         href={href}
         target="_blank"
         rel="noreferrer"
-        className="hover:text-sky-500 transition"
+        className="text-sky-500 transition"
         aria-label={label}
       >
         {icon}
