@@ -1,52 +1,142 @@
-// ContactInfo.jsx
-import React from "react";
+import React, { useState } from "react";
 import { Mail, Phone, MessageCircle } from "lucide-react";
 
-const ContactInfo = () => {
-  return (
-    <section className="bg-gradient-to-r from-[#2d2f33] to-[#1e293b] text-white py-12 px-6">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-8">Contact Information</h2>
+const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-        <div className="space-y-6">
-          {/* Email */}
-          <div className="flex items-center justify-center space-x-3">
-            <Mail className="w-6 h-6 text-blue-400" />
-            <a
-              href="mailto:shihabuddin2469@gmail.com"
-              className="text-lg hover:underline"
-            >
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Contact form submitted:", formData);
+    setSubmitted(true);
+    setFormData({ name: "", email: "", message: "" });
+  };
+
+  return (
+    <section className="flex flex-col md:flex-row min-h-[350px] max-w-full">
+      {/* Left Side: Contact Info */}
+      <div className="flex-1 bg-gradient-to-br from-[#1f2937] to-[#374151] p-16 flex flex-col justify-start text-white space-y-10 rounded-none">
+        <h2 className="text-4xl font-bold">Contact Information</h2>
+
+        <div className="space-y-8 text-xl">
+          <div className="flex items-center space-x-4">
+            <Mail className="w-7 h-7 text-blue-400" />
+            <a href="mailto:shihabuddin2469@gmail.com" className="hover:underline">
               shihabuddin2469@gmail.com
             </a>
           </div>
 
-          {/* Phone */}
-          <div className="flex items-center justify-center space-x-3">
-            <Phone className="w-6 h-6 text-green-400" />
-            <a
-              href="tel:01786707639"
-              className="text-lg hover:underline"
-            >
+          <div className="flex items-center space-x-4">
+            <Phone className="w-7 h-7 text-green-400" />
+            <a href="tel:01786707639" className="hover:underline">
               01786707639
             </a>
           </div>
 
-          {/* WhatsApp */}
-          <div className="flex items-center justify-center space-x-3">
-            <MessageCircle className="w-6 h-6 text-green-500" />
+          <div className="flex items-center space-x-4">
+            <MessageCircle className="w-7 h-7 text-green-500" />
             <a
               href="https://wa.me/8801786707639"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-lg hover:underline"
+              className="hover:underline"
             >
               WhatsApp Me
             </a>
           </div>
         </div>
       </div>
+
+      {/* Right Side: Contact Form */}
+      <div className="flex-1 bg-gradient-to-br from-[#111827] to-[#1e293b] p-16 shadow-lg rounded-none flex flex-col justify-center">
+        <h2 className="text-4xl font-bold text-white mb-8">Send a Message</h2>
+
+        {submitted && (
+          <p className="mb-6 text-green-400 font-semibold">
+            Thank you for your message! I'll get back to you soon.
+          </p>
+        )}
+
+        <form
+          onSubmit={handleSubmit}
+          className="max-w-md w-full mx-auto space-y-4"
+        >
+          <div>
+            <label
+              htmlFor="name"
+              className="block mb-1 font-semibold text-white text-base"
+            >
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Your name"
+              required
+              className="w-full px-3 py-2 rounded bg-[#2d2f33] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-sky-500 text-white text-base"
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="email"
+              className="block mb-1 font-semibold text-white text-base"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Your email"
+              required
+              className="w-full px-3 py-2 rounded bg-[#2d2f33] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-sky-500 text-white text-base"
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="message"
+              className="block mb-1 font-semibold text-white text-base"
+            >
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Write your message here..."
+              rows={4}
+              required
+              className="w-full px-3 py-2 rounded bg-[#2d2f33] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-sky-500 resize-y text-white text-base"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="bg-sky-500 hover:bg-sky-600 transition text-white font-semibold px-6 py-2 rounded text-base w-full"
+          >
+            Send
+          </button>
+        </form>
+      </div>
     </section>
   );
 };
 
-export default ContactInfo;
+export default ContactForm;
