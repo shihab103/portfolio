@@ -6,37 +6,55 @@ import {
   FaCss3Alt,
   FaNodeJs,
   FaGitAlt,
-  FaDocker,
   FaDatabase,
   FaServer,
   FaCode,
   FaTerminal,
+  FaPython,
+  FaJava,
+  FaBootstrap,
+  FaFigma,
 } from "react-icons/fa";
+import { SiNextdotjs, SiC, SiCplusplus, SiFirebase, SiJavascript } from "react-icons/si";
 
 const skillIcons = {
   "React.js": <FaReact className="text-sky-400 w-16 h-16" />,
   "JavaScript": <FaJsSquare className="text-yellow-400 w-16 h-16" />,
-  "HTML & CSS": (
-    <>
-      <FaHtml5 className="text-orange-600 w-16 h-16 inline-block mr-2" />
-      <FaCss3Alt className="text-blue-600 w-16 h-16 inline-block" />
-    </>
-  ),
+  "ES6": <SiJavascript className="text-yellow-300 w-16 h-16" />,
+  "HTML": <FaHtml5 className="text-orange-600 w-16 h-16" />,
+  "CSS": <FaCss3Alt className="text-blue-600 w-16 h-16" />,
   "Tailwind CSS": <FaCss3Alt className="text-teal-400 w-16 h-16" />,
+  "Bootstrap": <FaBootstrap className="text-purple-600 w-16 h-16" />,
+  "Next.js": <SiNextdotjs className="text-white w-16 h-16" />,
+  "C": <SiC className="text-blue-500 w-16 h-16" />,
+  "C++": <SiCplusplus className="text-blue-400 w-16 h-16" />,
+  "Python": <FaPython className="text-yellow-300 w-16 h-16" />,
+  "Java": <FaJava className="text-red-500 w-16 h-16" />,
   "Node.js": <FaNodeJs className="text-green-600 w-16 h-16" />,
   "Express.js": <FaServer className="text-gray-300 w-16 h-16" />,
   "MongoDB": <FaDatabase className="text-green-500 w-16 h-16" />,
   "MySQL": <FaDatabase className="text-blue-700 w-16 h-16" />,
+  "Firebase": <SiFirebase className="text-yellow-400 w-16 h-16" />,
   "Git & GitHub": <FaGitAlt className="text-orange-500 w-16 h-16" />,
   "VS Code": <FaCode className="text-blue-500 w-16 h-16" />,
   "Postman": <FaTerminal className="text-orange-600 w-16 h-16" />,
-  "Docker": <FaDocker className="text-blue-500 w-16 h-16" />,
+  "Figma": <FaFigma className="text-pink-500 w-16 h-16" />,
 };
 
 const skills = {
-  Frontend: ["React.js", "JavaScript", "HTML & CSS", "Tailwind CSS"],
-  Backend: ["Node.js", "Express.js", "MongoDB", "MySQL"],
-  Tools: ["Git & GitHub", "VS Code", "Postman", "Docker"],
+  Frontend: [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "React.js",
+    "ES6",
+    "Tailwind CSS",
+    "Bootstrap",
+    "Next.js",
+  ],
+  Backend: ["Node.js", "Express.js", "MongoDB", "MySQL", "Firebase"],
+  Programming: ["C", "C++", "Python", "Java"],
+  Tools: ["Git & GitHub", "VS Code", "Postman", "Figma"],
 };
 
 const Skill = () => {
@@ -55,15 +73,13 @@ const Skill = () => {
                 key={skill}
                 className="primary rounded-lg p-10 flex flex-col items-center justify-center gap-4 cursor-default transition-transform transition-shadow duration-300"
                 style={{
-                  background:
-                    "linear-gradient(135deg, #3a3d42, #2d2f33)", // সামান্য ডার্ক গ্রেডিয়েন্ট
-                  boxShadow:
-                    "0 4px 15px rgba(13, 15, 23, 0.7)", // ডার্ক কিন্তু নরম শ্যাডো
+                  background: "linear-gradient(135deg, #3a3d42, #2d2f33)",
+                  boxShadow: "0 4px 15px rgba(13, 15, 23, 0.7)",
                   borderRadius: "0.5rem",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.boxShadow =
-                    "0 12px 40px rgba(56, 150, 250, 0.7)"; // হোভার এ হালকা নীল শ্যাডো
+                    "0 12px 40px rgba(56, 150, 250, 0.7)";
                   e.currentTarget.style.transform = "translateY(-5px)";
                 }}
                 onMouseLeave={(e) => {
