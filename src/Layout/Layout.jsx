@@ -3,6 +3,7 @@ import Navbar from '../Components/Navbar/Navbar';
 import Home from '../Pages/Home/Home';
 import About from '../Pages/About/About';
 import Skill from '../Pages/Skill/Skill';
+import Education from '../Pages/Education/Education';
 
 const Layout = () => {
     return (
@@ -11,6 +12,7 @@ const Layout = () => {
             <Home/>
             <About/>
             <Skill/>
+            <Education/>
         </div>
     );
 };
