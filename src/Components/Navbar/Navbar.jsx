@@ -4,17 +4,19 @@ import { FaGithub, FaFacebook, FaBars, FaTimes } from "react-icons/fa";
 const links = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
-  { id: "skills", label: "Skill" },
+  { id: "skills", label: "Skills" },
+  { id: "projects", label: "Projects" },
+  { id: "contact", label: "Contact" },
 ];
 
 const socialLinks = [
   {
-    href: "https://github.com/your-github-username",
+    href: "https://github.com/shihab103",
     label: "GitHub",
     icon: <FaGithub />,
   },
   {
-    href: "https://facebook.com/your-facebook-profile",
+    href: "https://www.facebook.com/csei52s2",
     label: "Facebook",
     icon: <FaFacebook />,
   },
@@ -58,7 +60,7 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-50 primary shadow-md">
-      <div className="container mx-auto flex items-center justify-between px-6 py-3">
+      <div className="px-6 mx-auto flex items-center justify-between py-3">
         {/* Logo */}
         <div className="flex-1">
           <a
@@ -85,7 +87,7 @@ const Navbar = () => {
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle Menu"
-            className="text-gray-700 text-3xl focus:outline-none"
+            className="text-sky-600 text-3xl focus:outline-none"
           >
             {menuOpen ? <FaTimes /> : <FaBars />}
           </button>
@@ -94,9 +96,11 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white shadow-md border-t border-gray-200">
+        <div className="md:hidden secondary shadow-md border-t border-gray-200">
           <div className="flex flex-col px-6 py-4 gap-4">
-            {renderLinks("text-gray-700 hover:text-sky-500 transition px-3 py-2 rounded text-left")}
+            {renderLinks(
+              "text-gray-700 hover:text-sky-500 transition px-3 py-2 rounded text-left"
+            )}
             <div className="flex gap-6 text-gray-700 text-2xl mt-4">
               {renderSocialIcons()}
             </div>

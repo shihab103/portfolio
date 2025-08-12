@@ -1,3 +1,6 @@
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const educations = [
   {
@@ -19,8 +22,10 @@ const educations = [
   },
 ];
 
-
 const Education = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: false }); // every time on scroll
+  }, []);
 
   return (
     <section className="secondary mx-auto px-6 py-16" id="education">
@@ -33,10 +38,14 @@ const Education = () => {
           <div
             key={idx}
             className="bg-gradient-to-br from-[#2f3337] to-[#26282b] p-6 rounded-lg shadow-md"
+            data-aos="fade-up"
+            data-aos-delay={idx * 200} // stagger effect
           >
             <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
               <div>
-                <h3 className="text-2xl font-semibold text-white">{edu.degree}</h3>
+                <h3 className="text-2xl font-semibold text-white">
+                  {edu.degree}
+                </h3>
                 <p className="text-gray-300 mt-1">{edu.institution}</p>
               </div>
 
@@ -59,7 +68,6 @@ const Education = () => {
             )}
           </div>
         ))}
-
       </div>
     </section>
   );

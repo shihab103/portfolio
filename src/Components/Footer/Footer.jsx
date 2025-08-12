@@ -9,7 +9,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-gray-300 py-8">
+    <footer className="primary text-gray-300 py-8">
       <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between gap-8">
         {/* Left: About Me */}
         <div className="md:w-1/3">
@@ -83,7 +83,7 @@ const Footer = () => {
               <FaGithub />
             </a>
             <a
-              href="https://facebook.com/shihab103"
+              href="https://www.facebook.com/csei52s2"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-sky-500 transition"
@@ -92,7 +92,7 @@ const Footer = () => {
               <FaFacebook />
             </a>
             <a
-              href="https://linkedin.com/in/shihab103"
+              href="https://www.linkedin.com/in/shihab-web-dev/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-sky-500 transition"

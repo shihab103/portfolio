@@ -1,12 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 @plugin "daisyui";
 
-.primary{
-    background-color: #2d2f33;
+body {
+  font-family: "Roboto", sans-serif;
 }
-.secondary{
-    background-color: #25262a;
+
+.primary {
+  background-color: #2d2f33;
 }
-.btn-bg{
-    background-color: #00bcff;
+.secondary {
+  background-color: #25262a;
+}
+.btn-bg {
+  background-color: #00bcff;
 }

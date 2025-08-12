@@ -1,3 +1,7 @@
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import blood from '../../assets/Image/bloodHome.png';
 import review from '../../assets/Image/reviewHome.png';
 
@@ -25,6 +29,10 @@ const projects = [
 ];
 
 const Projects = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: false }); // will trigger every time on scroll
+  }, []);
+
   return (
     <section className="mx-auto secondary px-6 py-16 space-y-12" id="projects">
       <h2 className="text-4xl font-bold text-center text-sky-500 mb-12">
@@ -37,6 +45,7 @@ const Projects = () => {
           className={`flex flex-col lg:flex-row ${
             index % 2 !== 0 ? "lg:flex-row-reverse" : ""
           } bg-gradient-to-br from-[#2f3337] to-[#26282b] rounded-lg shadow-md overflow-hidden`}
+          data-aos={index % 2 === 0 ? "fade-right" : "fade-left"} // left-right alternate
         >
           {/* Left Side - Info */}
           <div className="w-full lg:w-1/2 p-8 flex flex-col justify-center">
@@ -60,7 +69,6 @@ const Projects = () => {
               >
                 Client Repo
               </a>
-
             </div>
 
             {/* Tools */}

@@ -9,7 +9,7 @@ import Footer from '../Components/Footer/Footer';
 
 const Layout = () => {
     return (
-        <div>
+        <div className='max-w-[1800px] mx-auto'>
             <Navbar/>
             <Home/>
             <About/>

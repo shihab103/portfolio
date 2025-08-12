@@ -22,15 +22,26 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="flex flex-col md:flex-row min-h-[350px] max-w-full">
+    <section
+      id="contact"
+      className="flex flex-col md:flex-row min-h-[350px] max-w-full"
+    >
       {/* Left Side: Contact Info */}
-      <div className="flex-1 bg-gradient-to-br from-[#1f2937] to-[#374151] p-16 flex flex-col justify-start text-white space-y-10 rounded-none">
+      <div
+        className="flex-1 shadow-lg pl-6 pr-26 py-16 flex flex-col justify-start text-white space-y-10"
+        style={{
+          background: "linear-gradient(135deg, #3a3d42, #2d2f33)",
+        }}
+      >
         <h2 className="text-4xl font-bold">Contact Information</h2>
 
         <div className="space-y-8 text-xl">
           <div className="flex items-center space-x-4">
             <Mail className="w-7 h-7 text-blue-400" />
-            <a href="mailto:shihabuddin2469@gmail.com" className="hover:underline">
+            <a
+              href="mailto:shihabuddin2469@gmail.com"
+              className="hover:underline"
+            >
               shihabuddin2469@gmail.com
             </a>
           </div>
@@ -56,8 +67,8 @@ const ContactForm = () => {
         </div>
       </div>
 
-      {/* Right Side: Contact Form */}
-      <div className="flex-1 bg-gradient-to-br from-[#111827] to-[#1e293b] p-16 shadow-lg rounded-none flex flex-col justify-center">
+      {/* Right Side: Contact Form with Home Page Gradient */}
+      <div className="flex-1 bg-gradient-to-l from-[#2d2f33] to-[#1e293b] p-16 shadow-lg flex flex-col justify-center">
         <h2 className="text-4xl font-bold text-white mb-8">Send a Message</h2>
 
         {submitted && (
